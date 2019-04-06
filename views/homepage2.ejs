@@ -1,0 +1,27 @@
+<DOCTYPE html>
+<head>
+	<link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <header>
+    	<nav>
+    		<h2>
+    			Scribe
+    		</h2>
+    	</nav>
+    </header> 
+
+    <div id="projects" class="container">
+    	<p>Projects</p>
+        <% for(var n=1; n < tasks.length(); n++){ %>
+            <div id="task">
+                <%= task.name %>
+                <%= task.stage %>
+            </div>
+        <% } %>    
+    </div>
+
+    <div>
+    	<a href="#">Create new project</a>
+    </div>
+</body>

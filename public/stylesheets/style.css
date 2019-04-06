@@ -1,0 +1,40 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/*========= Homepage =========*/
+nav{
+	color:#282385;
+}
+
+nav h2{
+	color: white;
+}
+
+#projects{
+	text-align: center;
+	display: block;
+	margin: auto;
+}
+
+/*=========Create Project=============*/
+
+.main-agileinfo {
+    width: 46%;
+    margin: 2em auto;
+    padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+
+.agileits-top{
+	padding: 1.8em;
+	margin: 0;
+	font: inherit;
+	vertical-align: baseline;
+}
