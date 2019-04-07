@@ -38,3 +38,41 @@ nav h2{
 	font: inherit;
 	vertical-align: baseline;
 }
+
+/*=========initiation Page============*/
+#mainHeader{
+	margin:auto;
+	text-align: center;
+}
+
+#description{
+	margin:auto;
+	width:54%;
+}
+
+#description h2{
+	color: #4c4c4c;
+	font-weight: 500;
+}
+
+#description p{
+	color: #737373;
+	font-size: 14px;
+	padding-bottom: 40px;
+}
+
+#subStageList{
+	width:50%;
+	margin:auto;
+}
+
+#subStage{
+	width: 80%;
+	display: block;
+	margin: 12px auto;
+	text-decoration: none;
+	background-color: #399bda;
+	color: white;
+	padding: 7px;
+	text-align: center;
+}

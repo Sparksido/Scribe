@@ -63,9 +63,17 @@ router.post("/projectAcceptor", function(req,res){
         var projects = db.collection("projects");
         projects.insertOne(venture, function(err, result){
                 console.log("I passed here");
-                res.render("initiationPage",{project:result});
+                res.render("initiationPage",{project:result, user:"manager"});
         });
     });
+});
+
+router.get("/initiationPage", function(req,res){
+    //if(level == "executive"){
+        res.render("initiationPage",{});
+    //}else if(level == "manager"){
+     //   res.render("initiationPageM",{});
+    //}
 });
 
 module.exports = router;
