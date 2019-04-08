@@ -6,36 +6,56 @@ var idgen = require("idgen");
 var url = 'mongodb://localhost:27017/endevour';
 var dbName = "endevour";
 
+
 /* GET home page. */
 router.get('/', function(req, res) {
-
-   	//Fetching data from the database
-   	// MongoClient.connect(url, function(){
-    //     var db = Clientdb(db);
-
-    //     var projects = db.collection("projects");
-    // });
-
-    //Using assembled test data
-    var tasks = [{
-    	"name": "Electric Car Build",
-    	"stage": "Execution",
-    	"initiator": "Tlhalefo Ketsididi",
-    	"budget": "P2 000 000 000"
-    },{
-    	"name": "Cloud Storage Service",
-    	"stage": "Planning",
-    	"initiator": "Malebogo Kemmonye",
-    	"budget": "P9 000 000"
-    },{
-    	"name":"Neural Network Engine",
-    	"stage": "initiation",
-    	"initiator": "Mopati Bogatsu",
-    	"budget": "P20 000 000"
-    }];
-
-    res.render("homepage", {tasks:tasks});
+    res.render("loginPage", {});
 });
+
+router.post("/loginAcxeptor", function(req,res){
+    var username = req.body.name;
+    var password = req.body.password;
+    
+    MongoClient.connect(url, function(err, client){
+        var db = client.db(dbName);
+        var personnel = db.collection("employees");
+
+        personnel.find({"username":name}, function(err, result){
+            if(result.username != username){
+                res.render("loginPage", {});
+            }else if(result.username == username){
+
+                //Fetching data from the database
+                // MongoClient.connect(url, function(){
+                //     var db = Clientdb(db);
+
+                //     var projects = db.collection("projects");
+                // });
+
+                //Using assembled test data
+                var tasks = [{
+                    "name": "Electric Car Build",
+                    "stage": "Execution",
+                    "initiator": "Tlhalefo Ketsididi",
+                    "budget": "P2 000 000 000"
+                },{
+                    "name": "Cloud Storage Service",
+                    "stage": "Planning",
+                    "initiator": "Malebogo Kemmonye",
+                    "budget": "P9 000 000"
+                },{
+                    "name":"Neural Network Engine",
+                    "stage": "initiation",
+                    "initiator": "Mopati Bogatsu",
+                    "budget": "P20 000 000"
+                }];
+
+                res.cookies("level") = result.level;
+                res.render("homepage", {tasks:tasks});
+            }
+        })
+    })
+})
 
 router.get("/projectCreator", function(req,res){
     res.render("createProject",{});
