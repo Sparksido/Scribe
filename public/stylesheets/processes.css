@@ -1,0 +1,186 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+
+/*=============== NavBar =================*/
+
+#navBar {
+    margin: auto;
+    padding: inherit;
+    text-align: center;
+    border: 1px solid #2F4F4F;
+    background-color: #2F4F4F;
+    color: white;
+}
+
+/*==============Processes Page=============*/
+#mainHeader {
+    margin: auto;
+    text-align: center;
+    padding: 15px 10px;
+}
+
+#processes {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+#process {
+    width: 60%;
+    height: auto;
+    text-decoration: none;
+    display: block;
+    background-color: #399BDA;
+    margin: 12px auto;
+    padding: 7px;
+    color: white;
+}
+
+/*============== Login Page ============*/
+#loginBelow {
+    border: 1px solid #399BDA;
+    width: 20%;
+    margin: 3em auto 0;
+    text-align: center;
+    background-color: #399BDA;
+}
+
+#loginBelow h2 {
+    color: #2F4F4F;
+}
+
+#accessForm{
+    border: 1px solid #399BDA;
+    width: 20%;
+    height: 15em;
+    margin: 0.5em auto;
+    text-align: center;
+    background-color: #399BDA;
+    color: white;
+}
+
+#name, #password {
+    display: block;
+    margin: 0.5em auto;
+    text-align: center;
+    height: 2em;
+    font-size: 1em;
+    width: 14em;
+}
+
+#accessForm p {
+    font-size: 1.2em;
+    font-weight: 100;
+    margin: 0.5em auto;
+}
+
+#accessForm div {
+    margin: 2em auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
