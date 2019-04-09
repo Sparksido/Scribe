@@ -7,13 +7,13 @@ a {
     color: #00B7FF;
 }
 
-/*=============== Nav =================*/
+/*=============== NavBar =================*/
 
 #navBar {
     margin: auto;
     padding: inherit;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid #2F4F4F;
     background-color: #2F4F4F;
     color: white;
 }
@@ -42,7 +42,49 @@ a {
     color: white;
 }
 
-]
+/*============== Login Page ============*/
+#loginBelow {
+    border: 1px solid #399BDA;
+    width: 20%;
+    margin: 3em auto 0;
+    text-align: center;
+    background-color: #399BDA;
+}
+
+#loginBelow h2 {
+    color: #2F4F4F;
+}
+
+#accessForm{
+    border: 1px solid #399BDA;
+    width: 20%;
+    height: 15em;
+    margin: 0.5em auto;
+    text-align: center;
+    background-color: #399BDA;
+    color: white;
+}
+
+#name, #password {
+    display: block;
+    margin: 0.5em auto;
+    text-align: center;
+    height: 2em;
+    font-size: 1em;
+    width: 14em;
+}
+
+#accessForm p {
+    font-size: 1.2em;
+    font-weight: 100;
+    margin: 0.5em auto;
+}
+
+#accessForm div {
+    margin: 2em auto;
+}
+
+
 
 
 
