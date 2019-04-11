@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 var MongoClient = require("mongodb").MongoClient;
 var idgen = require("idgen");
+var config = require("./config");
 
-var url = 'mongodb://localhost:27017/endevour';
 var dbName = "endevour";
-
+var url = config.url;
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -153,6 +153,11 @@ router.get("/project/:projId", function(req,res){
     console.log(projectId);
 
     MongoClient.connect(url, { useNewUrlParser: true }, function(err, client){
+
+        if(err){
+            console.log("THE DATABASE CONNECTION ERROR IS");
+            console.log(err);
+        }
         var db = client.db(dbName);
 
         var currentProject = db.collection("projects");
