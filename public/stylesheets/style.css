@@ -20,7 +20,57 @@ nav h2{
 	text-align: center;
 	display: block;
 	margin: auto;
+	width:70%;
 }
+
+#top{
+	color:grey;
+	font-weight: 500;
+}
+
+#task{
+	text-decoration: none;
+	background-color: #399bda;
+	color: white;
+	display: inline-block;
+	width:40%;
+	text-align:center;
+	margin: 10px 10px 10px 0;
+
+}
+
+#projName{
+	width:100%;
+	margin:auto;
+	text-align: center;
+	font-size: 18px;
+}
+
+#projStage{
+	width:100%;
+	margin:auto;
+	text-align: center;
+	font-size:14px;
+	color:#ead0d0;
+}
+
+#projectCreator{
+	width:40%;
+	background-color:navy;
+	color:white;
+	text-align: center;
+	display:block;
+	margin:auto;
+	height:60px;
+
+}
+
+#projectCreator a{
+	color: white;
+	font-size: 19px;
+	text-decoration: none;
+}
+
 
 /*=========Create Project=============*/
 

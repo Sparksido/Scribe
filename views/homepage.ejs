@@ -13,17 +13,25 @@
     </header> 
 
     <div id="projects" class="container">
-        <p>Projects</p>
+        <h2 id="top">Projects</h2>
         <% for(var n=0; n < tasks.length; n++){ %>
-            <div id="task">
-                <%= tasks[n].name %>
-                <%= tasks[n].stage %>
-            </div>
+            <!-- <div id="task"> -->
+                <a id="task" href="/project/<%= tasks[n].id %>">
+                    <div id="projName">
+                        <%= tasks[n].name %>
+                    </div>
+                    <div id="projStage">
+                        <%= tasks[n].stage %>
+                    </div>
+                </a>
+            <!-- </div> -->
         <% } %>    
     </div>
 
-    <div>
-        <a href="/projectCreator">Create new project</a>
+    <div id="projectCreator">
+        <div style="display: table; height:100%; width:100%">
+            <a style="display: table-cell; vertical-align: middle;" href="/projectCreator">Create new project</a>
+        </div>
     </div>
   </body>
 </html>

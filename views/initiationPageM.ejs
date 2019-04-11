@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	 <% include partial_head %>
+	<% include partial_head %>
 </head>
 <body>
 	<h1 id="mainHeader">Project Initiation Process</h1>
@@ -20,7 +20,12 @@
 	</div>
 
 	<div id="subStageList">
-		<a id="subStage" href="/projectCharter">Develop Project Carter</a>
+
+		<% if(approval == ""){ %>
+			<a id="subStage" href="#">Develop Project Carter</a>
+		<% } else if(approval != ""){ %>
+			<a id="subStage" href="/projectCharter">Develop Project Carter</a>
+		<% } %>
 		<a id="subStage" href="/identifyStakeholders">Identify Stakeholders</a>
 		<a id="subStage" href="/prepareEnvironment">Prepare Project Environment</a>
 		<a id="subStage" href="/reportPerformance">Report and Review Performance</a>

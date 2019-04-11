@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <head>
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
@@ -6,5 +6,29 @@
     <div id="accessForm">
         <input name="username" id="name" type="text">
         <input name="password" type="password">
+    <div>
+</body> -->
+
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="/stylesheets/processes.css">
+</head>
+<body>
+    <header>
+        <nav id="navBar">
+            <h1>Scribe</h1>
+        </nav>
+    </header>
+    <div id="loginBelow">
+        <h2>Login Below</h2>
+    </div>
+    <div id="accessForm">
+        <form method="post" action="/loginAcceptor">
+            <p>Username</p>
+            <input name="username" id="name" type="text" placeholder="Username Here">
+            <p>Password</p>
+            <input name="password" id="password" type="password" placeholder="Password Here">
+            <input name="submit" id="submit" type="submit" value="Login">
+        </form>
     <div>
 </body>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include partial_head %>
+</head>
+<body>
+	<h1 id="mainHeader">Project Initiation Process</h1>
+
+	<div id="description">
+		<h2>Purpose</h2>
+		<p>
+			To define a new project or a new phase of an existing project by obtaining authorisation to start a project or a phase. Project stakeholders are also identified.
+		</p>
+		<h2>Responsibilities</h2>
+		<p>
+			Project manager is responsible for entire process
+			Project controls manager provides PM Methodology to the project manager
+			The project sponsor and the project sponsor must approve all project initiation documentation in order to approve commencement of project work by the project manager.
+		</p>
+	</div>
+
+	<div id="assignation">
+	<h2> Select Manager </h2>
+		<% if(approval == ""){ %>
+			<% for(i=0; i < managers.length; i++){ %>
+				<%= managers[i].name %>
+			<% } %>
+		<% } else if(approval == "positive"){ %>
+			<a id="subStage" href="/projectCharter">Develop Project Carter</a>
+			<a id="subStage" href="/identifyStakeholders">Identify Stakeholders</a>
+			<a id="subStage" href="/prepareEnvironment">Prepare Project Environment</a>
+			<a id="subStage" href="/reportPerformance">Report and Review Performance</a>
+		<% } %>
+	</div>
+</body>
+</html>
