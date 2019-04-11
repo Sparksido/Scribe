@@ -21,10 +21,17 @@
 
 	<div id="assignation">
 	<h2> Select Manager </h2>
+
 		<% if(approval == ""){ %>
-			<% for(i=0; i < managers.length; i++){ %>
-				<%= managers[i].name %>
-			<% } %>
+			<div id="managerWrapper">	
+				<% for(i=0; i < managers.length; i++){ %>
+					<div id="managerPositioner">
+						<a id="manager" href="#">
+							<%= managers[i].name %>
+						</a>
+					</div>
+				<% } %>		
+			</div>
 		<% } else if(approval == "positive"){ %>
 			<a id="subStage" href="/projectCharter">Develop Project Carter</a>
 			<a id="subStage" href="/identifyStakeholders">Identify Stakeholders</a>

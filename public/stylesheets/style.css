@@ -126,3 +126,28 @@ nav h2{
 	padding: 7px;
 	text-align: center;
 }
+
+/*=========InitiationPageE==========*/
+#managerWrapper{
+	width:50%;
+	display:block;
+	margin:auto;
+}
+
+#managerPositioner{
+	display:table;
+	background-color:#399bda;
+	width:100%;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+#manager{
+	
+	color:black;
+	height:80px;
+	display:table-cell;
+	vertical-align: middle;
+	margin:10px auto;
+	text-decoration:none;
+}
