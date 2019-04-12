@@ -147,6 +147,11 @@ router.get("/initiationPage", function(req,res){
     });
 })
 
+router.get("/projectHome/:projId", function(req,res){
+    var projectId = req.params.projId;
+    res.render("processes",{identifier:projectId});
+});
+
 router.get("/project/:projId", function(req,res){
     var projectId = req.params.projId;
     console.log("THE PROJECT ID IS");
