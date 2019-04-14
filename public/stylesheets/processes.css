@@ -43,6 +43,11 @@ a {
     font-weight: 200;
 }
 
+#processes a:hover {
+    background-color: transparent;
+    color: #2F4F4F;
+}
+
 /*===============Login Page=============*/
 #loginBelow {
     border: 1px solid #399BDA;
@@ -54,6 +59,8 @@ a {
 
 #loginBelow h2 {
     color: #2F4F4F;
+    position: relative;
+    top: 0px;
 }
 
 #accessForm{
@@ -83,6 +90,12 @@ a {
 
 #accessForm div {
     margin: 2em auto;
+}
+
+#accessForm input[type="submit"]:hover {
+    background-color: #2F4F4F;
+    color: #399BDA;
+    border: 1px solid #399BDA;
 }
 
 /*=====================Project Roster===================*/
