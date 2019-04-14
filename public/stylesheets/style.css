@@ -151,3 +151,18 @@ nav h2{
 	margin:10px auto;
 	text-decoration:none;
 }
+
+/*=========== Project Charter ============*/
+#charterForm{
+	width:50%;
+	display:block;
+	margin:auto;
+}
+
+#charterInput{
+	width:80%;
+}
+
+#charterText{
+	width:80%;
+}

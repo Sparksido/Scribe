@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include partial_head %>
+</head>
+<body>
+	<form id="charterForm" action="/projectCharter">
+		<input type="text" name="projectName" placeholder="Project Name" id="charterInput">
+		<input type="text" name="projectOwner" placeholder="Project Owner" id="charterInput">
+		<input type="text" name="projectSponsor" placeholder="Project Sponsor" id="charterInput">
+		<input type="text" name="projectManager" placeholder="Project Manager" id="charterInput">
+		<input type="text" name="stakeholders" placeholder="Stakeholders" id="charterInput">
+		<input type="text" name="startDate" placeholder="Expected Start Date" id="charterInput">
+		<input type="text" name="endDate" placeholder="Expected End Date" id="charterInput">
+
+		<textarea placeholder="Vision" id="charterText"></textarea>
+		<textarea placeholder="Mission" id="charterText"></textarea>
+		<textarea placeholder="Scope" id="charterText"></textarea>
+		<textarea placeholder="Success Metrics" id="charterText"></textarea>
+		<input type="submit">
+	</form>
+</body>
+</html>

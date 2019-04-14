@@ -26,17 +26,19 @@
 			<div id="managerWrapper">	
 				<% for(i=0; i < managers.length; i++){ %>
 					<div id="managerPositioner">
-						<a id="manager" href="#">
+						<a id="manager" href="/insertManager/?manId=<%= managers[i].id %>&projId=<%= project %>">
 							<%= managers[i].name %>
 						</a>
 					</div>
 				<% } %>		
 			</div>
 		<% } else if(approval == "positive"){ %>
-			<a id="subStage" href="/projectCharter">Develop Project Carter</a>
-			<a id="subStage" href="/identifyStakeholders">Identify Stakeholders</a>
-			<a id="subStage" href="/prepareEnvironment">Prepare Project Environment</a>
-			<a id="subStage" href="/reportPerformance">Report and Review Performance</a>
+			<div id="subStageList">
+				<a id="subStage" href="/projectCharter">Develop Project Carter</a>
+				<a id="subStage" href="/identifyStakeholders">Identify Stakeholders</a>
+				<a id="subStage" href="/prepareEnvironment">Prepare Project Environment</a>
+				<a id="subStage" href="/reportPerformance">Report and Review Performance</a>
+			</div>
 		<% } %>
 	</div>
 </body>

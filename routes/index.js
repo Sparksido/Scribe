@@ -110,40 +110,40 @@ router.post("/projectAcceptor", function(req,res){
 
 router.get("/initiationPage", function(req,res){
     MongoClient.connect(url, function(err, client){
-            var db = client.db(dbName);
+        var db = client.db(dbName);
 
-            var endevours = db.collection("projects");
+        var endevours = db.collection("projects");
 
-            endevours.findOne({"id":req.cookies.projectId}, function(err, result){
-                console.log("THE ID IS");
-                console.log(req.cookies.projectId);
+        endevours.findOne({"id":req.cookies.projectId}, function(err, result){
+            console.log("THE ID IS");
+            console.log(req.cookies.projectId);
 
-                var approval = "";
-                if(result.managerId == ""){
-                    approval = "";
-                }else if(result.managerId == res.cookie.userId){
-                    approval = "positive";
+            var approval = "";
+            if(result.managerId == ""){
+                approval = "";
+            }else if(result.managerId == res.cookie.userId){
+                approval = "positive";
+            }
+
+            if(level == "executive"){
+                if(approval == ""){
+
+                    var potentials = db.collection("employees");
+                    employees.find({"level":"management"}).toArray(function(err,result){
+                        if(err){console.log(err);} else{
+                            res.render("initiationPageE",{approval:"", choices:"result"});
+                        }
+                    })
+                }else{
+
+                    res.render("initiationPageE",{approval:"positive"});
                 }
 
-                if(level == "executive"){
-                    if(approval == ""){
+            }else if(level == "manager"){
 
-                        var potentials = db.collection("employees");
-                        employees.find({"level":"management"}).toArray(function(err,result){
-                            if(err){console.log(err);} else{
-                                res.render("initiationPageE",{approval:"", choices:"result"});
-                            }
-                        })
-                    }else{
-
-                        res.render("initiationPageE",{approval:"positive"});
-                    }
-
-                }else if(level == "manager"){
-
-                    res.render("initiationPageM",{approval:approval});
-                }
-            });
+                res.render("initiationPageM",{approval:approval});
+            }
+        });
     });
 })
 
@@ -187,7 +187,7 @@ router.get("/project/:projId", function(req,res){
                         if(err){console.log(err);} else{
                             console.log("THE LIST OF MANAGERS IS");
                             console.log(leaders);
-                            res.render("initiationPageE",{approval:"", managers:leaders});
+                            res.render("initiationPageE",{approval:"", managers:leaders, project:projectId});
                         }
                     })
                 }else{
@@ -227,6 +227,25 @@ router.get("/project/:projId", function(req,res){
             // }
         });
     });
+});
+
+router.get("/insertManager/", function(req, res){
+    var managerId = req.param("manId");
+    var projectId = req.param("projId");
+
+    MongoClient.connect(url, { useNewUrlParser: true }, function(err, client){
+        var db = client.db(dbName);
+
+        var projects = db.collection("projects");
+        projects.findOne({"id":projectId},function(err,result){
+            var leaders = {};
+            res.render("initiationPageE",{approval:"positive", managers:leaders, project:projectId});
+        });
+    });
+})
+
+router.get("/projectCharter", function(req,res){
+    res.render("projectCharter",{});
 });
 
 module.exports = router;
