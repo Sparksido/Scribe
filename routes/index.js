@@ -169,6 +169,9 @@ router.get("/project/:projId", function(req,res){
 
         currentProject.findOne({"id":projectId},function(err, result){
 
+            console.log("THE MANAGER ID IS: ");
+            console.log(result.managerId);
+
             console.log("THE RESULT IS");
             console.log(result);
             if(result.managerId == ""){
@@ -195,7 +198,7 @@ router.get("/project/:projId", function(req,res){
                     console.log(approval + "management");
                     res.render("initiationPageM",{approval:approval});
                 }
-            }else if(result.managerId == res.cookie.userId){
+            }else {
                 approval = "positive";
 
                 if(req.cookies.level== "executive"){
@@ -237,10 +240,11 @@ router.get("/insertManager/", function(req, res){
         var db = client.db(dbName);
 
         var projects = db.collection("projects");
-        projects.findOne({"id":projectId},function(err,result){
-            var leaders = {};
-            res.render("initiationPageE",{approval:"positive", managers:leaders, project:projectId});
-        });
+        //projects.findOne({"id":projectId},function(err,result){
+            projects.update({"id":projectId},{$set:{"managerId":managerId}});
+            //var leaders = {};
+            res.render("initiationPageE",{approval:"positive", project:projectId});
+        //});
     });
 })
 

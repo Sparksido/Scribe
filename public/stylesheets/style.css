@@ -98,17 +98,17 @@ nav h2{
 #description{
 	margin:auto;
 	width:54%;
+	background-color: #ece6e6;
+	padding: 10px;
 }
 
 #description h2{
-	color: #4c4c4c;
 	font-weight: 500;
 }
 
 #description p{
-	color: #737373;
 	font-size: 14px;
-	padding-bottom: 40px;
+	padding-bottom: 10px;
 }
 
 #subStageList{
