@@ -9,12 +9,21 @@
 			<div>
 				<p> Please approve the following project </p>
 				<h1><%= result[0].projectName %></h1>
-
-				<p>Project Owner</p><p><%= result[0].projectOwner %></p>
-				<p>Start Date</p><p><%= result[0].startDate %></p>
-				<p>End Date</p><p><%= result[0].endDate %></p>
-				<p>Project Sponsor</p><p><%= result[0].sponsor %></p>
-				<p>Project Manager</p><p><%= result[0].manager %></p>
+				<div id="fieldBox">
+					<p id="p1">Project Owner</p><p id="p2"><%= result[0].projectOwner %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Start Date</p><p id="p2"><%= result[0].startDate %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">End Date</p><p id="p2"><%= result[0].endDate %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Project Sponsor</p><p id="p2"><%= result[0].sponsor %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Project Manager</p><p id="p2"><%= result[0].manager %></p>
+				</div>
 			</div>
 
 		<% }else{ %>
