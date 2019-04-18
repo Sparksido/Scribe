@@ -48,7 +48,6 @@ router.post("/loginAcceptor", function(req,res){
                     }
                 });
                 
-
                 //Using assembled test data
                 // var tasks = [{
                 //     "name": "Electric Car Build",
@@ -97,13 +96,72 @@ router.post("/projectAcceptor", function(req,res){
     venture["managerId"] = "";
     res.cookie("projectId", venture["id"]);
 
+    var processs = {};
+
+    processes = [{
+        "stage":"Initiating Process",
+        "status":"current",
+        "projectId":venture["id"]
+    },{
+        "stage":"Plannign Process",
+        "status":"future",
+        "projectId":venture["id"]
+    },{
+        "stage":"Executing Process",
+        "status":"future",
+        "projectId":venture["id"]
+    },{
+        "stage":"Monitoring and Controlling Process",
+        "status":"future",
+        "projectId":venture["id"]
+    },{
+        "stage":"Closing Process",
+        "status":"future",
+        "projectId":venture["id"]
+    }];
+
+    var subProcesses = [{
+        "name":"Develop Project Charter",
+        "projectId":venture["id"],
+        "processId":"11111111",
+        "status":"future"
+    },{
+        "name":"Identify Stakeholders",
+        "projectId":venture["id"],
+        "processId":"22222222",
+        "status":"future"
+    },{
+        "name":"Create and Set up Project Environment",
+        "projectId":venture["id"],
+        "processId":"33333333",
+        "status":"future"
+    },{
+        "name":"Report and Review Performance",
+        "projectId":venture["id"],
+        "processId":"44444444",
+        "status":"future"
+    }];
+
     MongoClient.connect(url, function(err, client){
         var db = client.db(dbName);
 
         var projects = db.collection("projects");
         projects.insertOne(venture, function(err, result){
-                console.log("I passed here");
-                res.render("initiationPageM",{project:result, user:"manager", approval:""});
+            console.log("I passed here");
+
+            var processList = db.collection("processes");
+            processList.insertMany(processes, function(err, result3){
+
+                if(err){
+                    console.log("THERE IS AN ERROR");
+                    console.log(err);
+                }else{  
+                    var subProcessList = db.collection("subProcesses");
+                    subProcessList.insertMany(subProcesses,function(err, result3){
+                        res.render("initiationPageM",{project:result, user:"manager", approval:""});
+                    })  
+                }
+            })
         });
     });
 });
@@ -149,6 +207,7 @@ router.get("/initiationPage", function(req,res){
 
 router.get("/projectHome/:projId", function(req,res){
     var projectId = req.params.projId;
+    res.cookie("projectId", projectId);
     res.render("processes",{identifier:projectId});
 });
 
@@ -169,9 +228,9 @@ router.get("/project/:projId", function(req,res){
 
         currentProject.findOne({"id":projectId},function(err, result){
 
+            // IF STAGE CLICKED IS INITIATING PROCESSES
             console.log("THE MANAGER ID IS: ");
             console.log(result.managerId);
-
             console.log("THE RESULT IS");
             console.log(result);
             if(result.managerId == ""){
@@ -248,8 +307,56 @@ router.get("/insertManager/", function(req, res){
     });
 })
 
+//ALL SUBSTAGES UNDER INITIATION PROCESSES
 router.get("/projectCharter", function(req,res){
-    res.render("projectCharter",{});
+    MongoClient.connect(url, { useNewUrlParser: true}, function(err, client){
+        var db = client.db(dbName);
+
+        var charters = db.collection("charters");
+        charters.findOne({"projectId":req.cookies.projectId}, function(err, result){
+            console.log("THE CHARTER SEARCH RESULT IS");
+            console.log(result);
+            console.log(req.cookies.projectId);
+
+            results = {};
+
+            if(result != null){ // if a project charter exists, save the results
+                results = [result];
+            }else{              // if one doesn't exist, save an empty array
+                results = [];
+            }
+
+            //if they are a manager open the project charter page for managers
+            if(req.cookies.level == "management"){
+
+                res.render("projectCharterM",{result:results});
+
+            //if they are an exec, open the project charter for execs
+            }else{ 
+                res.render("projectCharterE",{result:results});
+            }    
+        })         
+    })  
 });
+
+router.post("/projectCharterAcceptor",function(req,res){
+    console.log("THE REQUEST BODY IS");
+    console.log(req.body);
+
+    var recordedCharter = {};
+    recordedCharter = req.body;
+    recordedCharter["projectId"] = req.cookies.projectId;
+
+    MongoClient.connect(url, { useNewUrlParser:true }, function(err, client){
+        var db = client.db(dbName);
+
+        var charters = db.collection("charters");
+        charters.insertOne(req.body, function(err,outcome){
+            var results = [req.body];
+            res.render("projectCharterM", {result:results}); 
+        });
+    })
+    
+})
 
 module.exports = router;

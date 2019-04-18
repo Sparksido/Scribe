@@ -97,9 +97,9 @@ nav h2{
 
 #description{
 	margin:auto;
-	width:54%;
+	width:50%;
 	background-color: #ece6e6;
-	padding: 10px;
+	padding: 18px;
 }
 
 #description h2{
@@ -108,7 +108,7 @@ nav h2{
 
 #description p{
 	font-size: 14px;
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 }
 
 #subStageList{
@@ -143,10 +143,10 @@ nav h2{
 }
 
 #manager{
-	
+	width:90%;
 	color:black;
 	height:80px;
-	display:table-cell;
+	display:block;
 	vertical-align: middle;
 	margin:10px auto;
 	text-decoration:none;
@@ -165,4 +165,30 @@ nav h2{
 
 #charterText{
 	width:80%;
+}
+
+#skuffTin{
+	width:50%;
+	display: block;
+	margin:auto;
+}
+
+#fieldBox{
+	padding:4px;
+	border-bottom:solid 1px #e7dede;
+}
+
+#p1{
+	height:30px;
+	font-weight: 600;
+	color:#2b2b32;
+	margin:0;
+	display:inline-block;
+	width:20%;
+}
+
+#p2{
+	display: inline-block;
+	width: 70%;
+	margin:0;
 }

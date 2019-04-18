@@ -109,10 +109,11 @@ h2 {
 #roster {
     margin: 50px auto;
     padding: 0.1em;
-    width: 23em;
+    width: 90%;
     height: 8.5em;
     background-color: #399BDA;
     color: white;
+    display:flex;
 }
 
 #rosterIcon {
@@ -123,13 +124,13 @@ h2 {
 }
 
 #rosterInput {
-    position: relative;
-    padding: 0px;
-    width: 10em;
-    padding: 0px;
-    margin: auto;
-    left: 2em;
-    bottom: 8em;
+    height:100%;
+    display:table;
+}
+
+#rosterCenterer{
+    display: table-cell;
+    vertical-align: middle;
 }
 
 #rosterInput h5 {

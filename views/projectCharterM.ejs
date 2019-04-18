@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include partial_head %>
+</head>
+<body>
+	<% if(result.length == 1){ %>
+			<div id="skuffTin">
+				<p> The Charter is complete, Awaiting approval from the project sponsor</p>
+				<h1 style="font-weight: 550; color: #040435;"><%= result[0].projectName %></h1>
+
+				<div id="fieldBox">
+					<p id="p1">Project Owner</p><p id="p2"><%= result[0].projectOwner %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Start Date</p><p id="p2"><%= result[0].startDate %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">End Date</p><p id="p2"><%= result[0].endDate %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Project Sponsor</p><p id="p2"><%= result[0].sponsor %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Project Manager</p><p id="p2"><%= result[0].manager %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Stakeholders</p><p id="p2"><%= result[0].stakeholders %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Expected Start Date</p><p id="p2"><%= result[0].startDate %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Expected End Date</p><p id="p2"><%= result[0].endDate %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Vision</p><p id="p2"><%= result[0].vision %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Mission</p><p id="p2"><%= result[0].mission %></p>
+				</div>
+			</div>
+
+		<% }else{ %>
+			
+			<form id="charterForm" action="/projectCharterAcceptor" method="post">
+				<input type="text" name="projectName" placeholder="Project Name" id="charterInput">
+				<input type="text" name="projectOwner" placeholder="Project Owner" id="charterInput">
+				<input type="text" name="projectSponsor" placeholder="Project Sponsor" id="charterInput">
+				<input type="text" name="projectManager" placeholder="Project Manager" id="charterInput">
+				<input type="text" name="stakeholders" placeholder="Stakeholders" id="charterInput">
+				<input type="text" name="startDate" placeholder="Expected Start Date" id="charterInput">
+				<input type="text" name="endDate" placeholder="Expected End Date" id="charterInput">
+
+				<textarea name="vision" placeholder="Vision" id="charterText"></textarea>
+				<textarea name="mission" placeholder="Mission" id="charterText"></textarea>
+				<textarea name="scope" placeholder="Scope" id="charterText"></textarea>
+				<textarea name="successMetrics" placeholder="Success Metrics" id="charterText"></textarea>
+				<input type="submit">
+			</form>
+		<% } %>
+</body>
+</html>

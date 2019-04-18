@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<% if(result.length == 1){ %>
+	<div>
+		<h1><%= result[0].projectName %></h1>
+		<p>Project Owner</p><p><%= result[0].projectOwner %></p>
+		<p>Start Date</p><p><%= result[0].startDate %></p>
+	</div>
+<% }else{ %>
+	<p> The project Charter has not been created yet </p>
+<% } %>
+</body>
+</html>
