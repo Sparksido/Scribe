@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/processes.css">
+</head>
+<body>
+    <header id="header">
+    	<nav id="navBar">
+    		<h1>
+    			Scribe
+    		</h1>
+    	</nav>
+    </header>
+	<div id="createProject" class="first-wrapper">
+		<h2>New Project</h2>
+		<div id="createWrapper" class="second-wrapper">
+			<div id="createForm" class="third-wrapper">
+			    <form method="post" action="/projectAcceptor" enctype="utf/8">
+                    <p>Project name</p><input class="text" id="name" type="text" name="name" placeholder="New Project Name">
+                    <p>Start Date</p><input class="text" id="startDate" type="date" name="startDate" value="2019-04-02" placeholder="start date">
+                    <p>End Date</p><input class="text" id="endDate" type="date" name="endDate" value="2020-04-01" placeholder="End Date">
+                    <p>Project Budget (BWP)</p><input class="text" id="budget" type="number" min="0" value="100000000000" name="budget" placeholder="000000000000">
+                    <p>Project Description</p><textarea class="text" id="description" name="description"></textarea><br>
+			        <input id="submit" type="submit" value="create">
+			    </form>
+			</div>
+		</div>
+	</div>
+</body>

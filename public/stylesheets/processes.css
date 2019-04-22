@@ -132,12 +132,23 @@ h2 {
     bottom: 8em;
 }
 
-#rosterInput h5 {
+#rosterInput p {
     display: block;
     color: white;
     padding: 0.2em;
     margin: 0.2em;
     font-size: 1em;
+}
+
+/*============Create Project Page============*/
+#createWrapper{
+    background-color: #399BDA;
+    margin: 3em auto;
+    padding: 1em;
+    width: 30em;
+    height: 28em;
+    color: white;
+    text-align: left;
 }
 
 
