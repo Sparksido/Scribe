@@ -17,12 +17,12 @@
 		<div id="createWrapper" class="second-wrapper">
 			<div id="createForm" class="third-wrapper">
 			    <form method="post" action="/projectAcceptor" enctype="utf/8">
-                    <p>Project name</p><input class="text" id="name" type="text" name="name" placeholder="New Project Name">
-                    <p>Start Date</p><input class="text" id="startDate" type="date" name="startDate" value="2019-04-02" placeholder="start date">
-                    <p>End Date</p><input class="text" id="endDate" type="date" name="endDate" value="2020-04-01" placeholder="End Date">
-                    <p>Project Budget (BWP)</p><input class="text" id="budget" type="number" min="0" value="100000000000" name="budget" placeholder="000000000000">
-                    <p>Project Description</p><textarea class="text" id="description" name="description"></textarea><br>
-			        <input id="submit" type="submit" value="create">
+                    <p>Project name</p><input class="projectName" id="projectName" type="text" name="name" placeholder="New Project Name">
+                    <p>Start Date</p><input class="projectDate" id="startDate" type="date" name="startDate" value="2019-04-02" placeholder="start date">
+                    <p>End Date</p><input class="projectDate" id="endDate" type="date" name="endDate" value="2020-04-01" placeholder="End Date">
+                    <p>Project Budget (BWP)</p><input class="projectBudget" id="projectBudget" type="number" min="0" value="0000000000000" name="budget" placeholder="000000000000">
+                    <p id="descriptionLabel">Project Description</p><textarea class="text" id="projectDescription" name="description"></textarea><br>
+			        <input id="submitProject" type="submit" value="Create">
 			    </form>
 			</div>
 		</div>
