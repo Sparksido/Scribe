@@ -93,8 +93,8 @@ a {
 }
 
 #accessForm input[type="submit"]:hover {
-    background-color: #2F4F4F;
-    color: #399BDA;
+    background-color: transparent;
+    color: white;
     border: 1px solid #399BDA;
 }
 
@@ -133,12 +133,63 @@ h2 {
     vertical-align: middle;
 }
 
-#rosterInput h5 {
+#rosterInput p {
     display: block;
     color: white;
     padding: 0.2em;
     margin: 0.2em;
     font-size: 1em;
+}
+
+/*============Create Project Page============*/
+#createWrapper{
+    background-color: #000080;
+    width: 30em;
+    height: 40em;
+    position: relative;
+    top: 30px;
+    margin: 5px auto;
+    padding: 1em;
+    color: white;
+    text-align: left;
+}
+#projectName {
+    width: 16.5em;
+    height: 1.5em;
+    position: relative;
+    bottom: 2.5em;
+    left: 11em;
+    text-align: center;
+}
+#projectBudget {
+    width: 10em;
+    height: 1.4em;
+    text-align: center;
+}
+.projectDate, .projectBudget {
+    position: relative;
+    bottom: 2.5em;
+    left: 11em;
+    text-align: center;
+}
+#descriptionLabel {
+    text-align: center;
+}
+#projectDescription {
+    width: 25em;
+    height: 15em;
+    position: relative;
+    left: 10%;
+}
+#submitProject {
+    position: relative;
+    left: 45%;
+}
+
+#submitProject:hover {
+    background-color: transparent;
+    border: 1px solid transparent; 
+    color: white;
 }
 
 
