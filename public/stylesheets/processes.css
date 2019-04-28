@@ -98,8 +98,8 @@ a {
     border: 1px solid #399BDA;
 }
 
-/*=====================Project Roster===================*/
-h2 {
+/*=====================Roster Page=====================*/
+ #projectRoster {
     text-align: center;
     color: #2F4F4F;
     position: relative;
@@ -109,7 +109,7 @@ h2 {
 #roster {
     margin: 50px auto;
     padding: 0.1em;
-    width: 90%;
+    width: 70%;
     height: 8.5em;
     background-color: #399BDA;
     color: white;
@@ -189,6 +189,60 @@ h2 {
 #submitProject:hover {
     background-color: transparent;
     border: 1px solid transparent; 
+    color: white;
+}
+
+/*==================Potential Project Page================*/
+
+#metrix {
+    width: 71.5%;
+    margin: 20px auto;
+    display: flex;
+}
+ #risk {
+    width: 25%;
+    margin: 30px 0px;
+    padding: 10px;
+    background-color: #399BDA;
+    text-align: center;
+    float: left;
+}
+#strategicAlignment {
+    width: 25%;
+    margin: 30px auto;
+    padding: 10px;
+    display: inline-block;
+    background-color: #399BDA;
+    text-align: center;
+}
+#owner {
+    width: 25%;
+    margin: 30px 0px;
+    padding: 10px;
+    display: inline-block;
+    background-color: #399BDA;
+    text-align: center;
+    float: right;
+}
+#background {
+    width: 70%;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #399BDA;
+}
+#background h1 {
+    text-align: center;
+}
+#approveLink {
+    width: 10%;
+    margin: 0px auto;
+    padding: 10px;
+    background-color: #000080; 
+    text-decoration: none;
+    text-align: center;
+}
+#approveLink a {
+    text-decoration: none;
     color: white;
 }
 
