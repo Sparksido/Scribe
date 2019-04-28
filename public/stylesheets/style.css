@@ -62,7 +62,6 @@ nav h2{
 	display:block;
 	margin:auto;
 	height:60px;
-
 }
 
 #projectCreator a{
@@ -71,6 +70,25 @@ nav h2{
 	text-decoration: none;
 }
 
+/*========= Homepage2 ==========*/
+
+#task1{
+	width:100%;
+	display:flex;
+	text-decoration: none;
+	font-size: 18px;
+	height: 30px;
+	padding: 5px;
+}
+
+#stratAlign, #risk{
+	display:inline-block;
+	width:15%;
+}
+
+#projects2{
+
+}
 
 /*=========Create Project=============*/
 
@@ -139,17 +157,26 @@ nav h2{
 	background-color:#399bda;
 	width:100%;
 	margin-bottom: 10px;
-	text-align: center;
 }
 
 #manager{
 	width:90%;
 	color:black;
-	height:80px;
+	/*height:80px;*/
 	display:block;
 	vertical-align: middle;
 	margin:10px auto;
 	text-decoration:none;
+}
+
+#roster{
+	display: flex;
+	padding: 10px;
+}
+
+#rosterIcon{
+	height: 120px;
+	margin-right: 10px;
 }
 
 /*=========== Project Charter ============*/

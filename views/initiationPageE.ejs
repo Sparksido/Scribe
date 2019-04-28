@@ -30,18 +30,19 @@
 							<%= managers[i].name %>
 						</a>
 					</div>
- -->
-					<a id="manager" href="/insertManager/?manId=<%= managers[i].id %>&projId=<%= project %>">
-					<div id="roster">
-			            <img src="../images/icon.png" id="rosterIcon">
-			            <div id="rosterInput">
-			            	<div id="rosterCenterer">
-				                <h5><%= managers[i].name %></h5>
-				                <h5>2 Years Experience</h5>
-				            </div>
-			            </div>
-			        </div>
-			        </a>
+ -->				<div id="managerPositioner">
+						<a id="manager" href="/insertManager/?manId=<%= managers[i].id %>&projId=<%= project %>">
+							<div id="roster">
+					            <img src="../images/icon.png" id="rosterIcon">
+					            <div id="rosterInput">
+					            	<div id="rosterCenterer">
+						                <h5><%= managers[i].name %></h5>
+						                <h5>2 Years Experience</h5>
+						            </div>
+					            </div>
+					        </div>
+				        </a>
+				    </div>
 				<% } %>		
 			</div>
 		<% } else if(approval == "positive"){ %>

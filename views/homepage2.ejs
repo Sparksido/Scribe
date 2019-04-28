@@ -1,27 +1,73 @@
-<DOCTYPE html>
-<head>
-	<link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-<body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include partial_head %>
+  </head>
+  <body>
     <header>
-    	<nav>
-    		<h2>
-    			Scribe
-    		</h2>
-    	</nav>
+        <nav>
+            <h2>
+                Scribe
+            </h2>
+        </nav>
     </header> 
 
     <div id="projects" class="container">
-    	<p>Projects</p>
-        <% for(var n=1; n < tasks.length(); n++){ %>
-            <div id="task">
-                <%= task.name %>
-                <%= task.stage %>
-            </div>
+        <h2 id="top">Current Projects</h2>
+        <table style="width: 100%">
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Project Name</th>
+                    <th>Risk</th>
+                    <th>Strategic Alignment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var n=0; n < currentTasks.length; n++){ %>
+                    <tr>
+                        <td>                    
+                            <div id="projName">
+                                <a id="task1" href="/projectHome/<%= currentTasks[n].id %>">
+                                    <%= currentTasks[n].name %>
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="risk">
+                                50%
+                            </div>
+                        </td>
+                        <td>
+                            <div id="stratAlign">
+                                10%
+                            </div>
+                        </td>
+                    </tr>
+                <% } %> 
+            </tbody> 
+        </table>  
+    </div>
+
+    <div id="projects" class="container">
+        <h2 id="top2">Pending Projects</h2>
+        <% for(var n=0; n < pendingTasks.length; n++){ %>
+            <!-- <div id="task"> -->
+                <a id="task" href="/projectHome/<%= pendingTasks[n].id %>">
+                    <div id="projName">
+                        <%= pendingTasks[n].name %>
+                    </div>
+                    <div id="projStage">
+                        <%= pendingTasks[n].stage %>
+                    </div>
+                </a>
+            <!-- </div> -->
         <% } %>    
     </div>
 
-    <div>
-    	<a href="#">Create new project</a>
+    <div id="projectCreator">
+        <div style="display: table; height:100%; width:100%">
+            <a style="display: table-cell; vertical-align: middle;" href="/projectCreator">Create new project</a>
+        </div>
     </div>
-</body>
+  </body>
+</html>

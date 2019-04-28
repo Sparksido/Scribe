@@ -36,15 +36,30 @@ router.post("/loginAcceptor", function(req,res){
 
                 //Fetching data from the database
                 var projects = db.collection("projects");
-                projects.find({}).toArray(function(err, tasks){
+                projects.find({"approvalStatus":"sponsored"}).toArray(function(err, tasks){
                     if(err){
                         console.log("err");
                     }else{
+
                         res.cookie("level",result.level);
                         console.log("THE LEVEL THAT WAS SIGNED UP IS");
                         console.log(result.level);
                         res.cookie("userId",result.id);
-                        res.render("homepage", {tasks:tasks});
+
+                        projects.find({"approvalStatus":"pending"}).toArray(function(error, result2){
+                            res.render("homepage2",{currentTasks:tasks, pendingTasks:result2});
+                        });
+
+                        // projects.find({"approvalStatus":"pending"}).toArray(funtion(error, result1){
+                        //     if(error){
+
+                        //     }
+                        // });
+                            //proposals.find({"approvalStatus":"sponsored"}, function(err,result2){
+                                // res.render("homepage",{currentProjects:tasks, pendingProjects:result1});
+                            //});
+                        // });
+                        // 
                     }
                 });
                 
@@ -94,6 +109,7 @@ router.post("/projectAcceptor", function(req,res){
     venture["stage"] = stage;
     venture["id"] = idgen(8);
     venture["managerId"] = "";
+    venture["approvalStatus"] = "pending";
     res.cookie("projectId", venture["id"]);
 
     var processs = {};
@@ -179,8 +195,10 @@ router.get("/initiationPage", function(req,res){
             var approval = "";
             if(result.managerId == ""){
                 approval = "";
+                console.log("THE APPROVAL IS " + approval);
             }else if(result.managerId == res.cookie.userId){
                 approval = "positive";
+                 console.log("THE APPROVAL IS " + approval);
             }
 
             if(level == "executive"){
@@ -203,6 +221,16 @@ router.get("/initiationPage", function(req,res){
             }
         });
     });
+})
+
+router.get("/potentialProject/:projId", function(req,res){
+
+    MongoClient.connect(url, function(err, client){
+        var db = client.db(dbName);
+
+        var projects = db.collection("projects");
+    });
+
 })
 
 router.get("/projectHome/:projId", function(req,res){
@@ -356,7 +384,8 @@ router.post("/projectCharterAcceptor",function(req,res){
             res.render("projectCharterM", {result:results}); 
         });
     })
-    
-})
+});
+
+
 
 module.exports = router;
