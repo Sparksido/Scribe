@@ -219,3 +219,20 @@ nav h2{
 	width: 70%;
 	margin:0;
 }
+
+#feedback{
+	margin: 20px auto;
+	display: block;
+	width: 500px;
+	height: 200px;
+}
+
+#feed{
+	margin: auto;
+	display: block;
+	background-color: #1ca2a7;
+	color: white;
+	box-shadow: 0;
+	border: 0px;
+	height: 40px;
+}

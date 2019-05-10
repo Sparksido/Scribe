@@ -182,6 +182,35 @@ router.post("/projectAcceptor", function(req,res){
     });
 });
 
+router.get("/projectAprover/:projId", function(req, res){
+    var projectId = req.params.projId;
+
+    MongoClient.connect(url, function(err, client){
+        var db = client.db(dbName);
+
+        var projects = db.collection("projects");
+        projects.updateOne({"id":projectId}, {$set:{"approvalStatus":"sponsored"}});
+        console.log("THE ID OF PROJECT BEING APPROVED IS ");
+        console.log(projectId);
+
+        projects.findOne({"id":projectId}, { useNewUrlParser: true}, function(error, result){
+            var charterObj = {};
+            charterObj["projectName"] = result["name"];
+            charterObj["projectOwner"] = result["owner"];
+            charterObj["projectSponsor"] = result["sponsor"];
+            charterObj["projectManager"] = result[""];
+            charterObj["startDate"] = result["startDate"];
+            charterObj["endDate"] = result["endDate"];
+
+            var charters = db.collection("charters");
+            charters.insertOne(charterObj, function(fault, outcome){
+                res.cookie("projectId",projectId);
+                res.render("processes",{identifier:projectId});
+            });
+        });  
+    });
+});
+
 router.get("/initiationPage", function(req,res){
     MongoClient.connect(url, function(err, client){
         var db = client.db(dbName);
@@ -224,13 +253,19 @@ router.get("/initiationPage", function(req,res){
 })
 
 router.get("/potentialProject/:projId", function(req,res){
+    var projectId = req.params.projId;
 
     MongoClient.connect(url, function(err, client){
         var db = client.db(dbName);
 
         var projects = db.collection("projects");
+        projects.findOne({"id":projectId}, { useNewUrlParser: true }, function(err, result){
+            console.log("THE PROJECT ID IS " + projectId);
+            console.log("THE PROJECT FOUND IS ");
+            console.log(result);
+            res.render("potentialProject", {potentialProject:result});
+        });
     });
-
 })
 
 router.get("/projectHome/:projId", function(req,res){
@@ -326,12 +361,13 @@ router.get("/insertManager/", function(req, res){
     MongoClient.connect(url, { useNewUrlParser: true }, function(err, client){
         var db = client.db(dbName);
 
-        var projects = db.collection("projects");
-        //projects.findOne({"id":projectId},function(err,result){
-            projects.update({"id":projectId},{$set:{"managerId":managerId}});
-            //var leaders = {};
+        
+        var emploji = db.collection("employees");
+        emploji.findOne({"id":managerId}, function(fault, result){
+            var projects = db.collection("projects");
+            projects.updateOne({"id":projectId},{$set:{"managerId":managerId, "managerName":result["name"]}});
             res.render("initiationPageE",{approval:"positive", project:projectId});
-        //});
+        })
     });
 })
 
@@ -346,25 +382,27 @@ router.get("/projectCharter", function(req,res){
             console.log(result);
             console.log(req.cookies.projectId);
 
-            results = {};
+            var messages = db.collection("messages");
+            messages.find({"projectId":req.cookies.projectId}).toArray(function(fault,outcome){
 
-            if(result != null){ // if a project charter exists, save the results
-                results = [result];
-            }else{              // if one doesn't exist, save an empty array
-                results = [];
-            }
+                //if they are a manager open the project charter page for managers
+                if(req.cookies.level == "management"){
+                    console.log("I CAME IN HERE");
+                    res.render("projectCharterM",{result:result, messages:outcome});
 
-            //if they are a manager open the project charter page for managers
-            if(req.cookies.level == "management"){
+                //if they are an exec, open the project charter for execs
+                }else{ 
+                    res.render("projectCharterE",{result:result});
+                } 
+            });
 
-                res.render("projectCharterM",{result:results});
-
-            //if they are an exec, open the project charter for execs
-            }else{ 
-                res.render("projectCharterE",{result:results});
-            }    
+                
         })         
     })  
+});
+
+router.get("/updateBody/:projId",function(req,res){
+
 });
 
 router.post("/projectCharterAcceptor",function(req,res){
@@ -386,6 +424,48 @@ router.post("/projectCharterAcceptor",function(req,res){
     })
 });
 
+router.post("/feedback", function(req,res){
+    MongoClient.connect(url, { useNewUrlParser: true}, function(err, client){
+        var db = client.db(dbName);
 
+        console.log(req.body);
+
+        var messages = db.collection("messages");
+        var chartFeedback = {};
+        chartFeedback["message"] = req.body.feedback;
+        chartFeedback["projectId"] = req.body.id;
+        chartFeedback["sender"] = req.cookies.userId;
+
+        //insert the message into the messages collection
+        messages.insertOne(chartFeedback, function(fault, outcome){
+
+            //fetch the project again
+            var charters = db.collection("charters");
+            charters.findOne({"projectId":req.cookies.projectId}, function(err, result){
+                console.log("THE CHARTER SEARCH RESULT IS");
+                console.log(result);
+                console.log(req.cookies.projectId);
+
+                results = {};
+
+                if(result != null){ // if a project charter exists, save the results
+                    results = [result];
+                }else{              // if one doesn't exist, save an empty array
+                    results = [];
+                }
+
+                //if they are a manager open the project charter page for managers
+                if(req.cookies.level == "management"){
+
+                    res.render("projectCharterM",{result:result});
+
+                //if they are an exec, open the project charter for execs
+                }else{ 
+                    res.render("projectCharterE",{result:result});
+                }    
+            })
+        })         
+    })  
+});
 
 module.exports = router;

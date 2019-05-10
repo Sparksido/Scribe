@@ -4,31 +4,81 @@
 	<% include partial_head %>
 </head>
 <body>
-	<form id="charterForm" action="/projectCharter">
-		<% if(result.length == 1){ %>
-			<div>
+	
+	<% if(typeof result != "undefined" && result != null){ %>
+		<form>
+			<div id="skuffTin">
 				<p> Please approve the following project </p>
-				<h1><%= result[0].projectName %></h1>
+				<h1><%= typeof result.projectName != null ? result.projectName : "---" %></h1>
 				<div id="fieldBox">
-					<p id="p1">Project Owner</p><p id="p2"><%= result[0].projectOwner %></p>
+					<p id="p1">Project Owner</p><p id="p2"><%= result.projectOwner != null ? result.projectOwner : "---" %></p>
 				</div>
 				<div id="fieldBox">
-					<p id="p1">Start Date</p><p id="p2"><%= result[0].startDate %></p>
+					<p id="p1">Start Date</p><p id="p2"><%= result.startDate %></p>
 				</div>
 				<div id="fieldBox">
-					<p id="p1">End Date</p><p id="p2"><%= result[0].endDate %></p>
+					<p id="p1">End Date</p><p id="p2"><%= result.endDate %></p>
 				</div>
 				<div id="fieldBox">
-					<p id="p1">Project Sponsor</p><p id="p2"><%= result[0].projectSponsor %></p>
+					<p id="p1">Project Sponsor</p><p id="p2"><%= result.projectSponsor %></p>
 				</div>
 				<div id="fieldBox">
-					<p id="p1">Project Manager</p><p id="p2"><%= result[0].projectManager %></p>
+					<p id="p1">Project Manager</p><p id="p2"><%= result.projectManager %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Expected Start Date</p><p id="p2"><%= result.startDate %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Expected End Date</p><p id="p2"><%= result.endDate %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Vision</p><p id="p2"><%= result.vision %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Mission</p><p id="p2"><%= result.mission %></p>
 				</div>
 			</div>
+		</form>
 
-		<% }else{ %>
-			<p> The project Charter has not been created yet </p>
-		<% } %>
-	</form>
+		<form action="/feedback" method="post">
+			<textarea id="feedback" name="feedback"></textarea>
+			<input name="id" type="hidden" value="<%= result.projectId %>">
+			<input id="feed" type="submit" name="submit">Submit</input>
+		</form>
+	
+	<% }else{ %>
+		<form>
+			<div id="skuffTin">
+				
+				<h1><%= result.projectName %></h1>
+				<div id="fieldBox">
+					<p id="p1">Start Date</p><p id="p2"><%= result.startDate %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">End Date</p><p id="p2"><%= result.endDate %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Project Sponsor</p><p id="p2"><%= result.projectSponsor %></p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Project Manager</p><p id="p2">-----</p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Expected Start Date</p><p id="p2">-----</p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Expected End Date</p><p id="p2">-----</p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Vision</p><p id="p2">-----</p>
+				</div>
+				<div id="fieldBox">
+					<p id="p1">Mission</p><p id="p2">-----</p>
+				</div>
+				<p> The project Charter has not been completed yet </p>
+			</div>
+		</form>
+	<% } %>
+	
 </body>
 </html>

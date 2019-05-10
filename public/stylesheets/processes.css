@@ -194,18 +194,20 @@ a {
 
 /*==================Potential Project Page================*/
 
-#metrix {
+#metrics {
     width: 71.8%;
     margin: 3% auto;
     display: flex;
 }
- #risk {
+
+#risk {
     width: 25%;
     padding: 10px;
     display: inline-block;
     background-color: #399BDA;
     text-align: center;
 }
+
 #strategicAlignment {
     width: 30%;
     margin: 0px auto;
@@ -214,6 +216,7 @@ a {
     background-color: #399BDA;
     text-align: center;
 }
+
 #owner {
     width: 25%;
     padding: 10px;
@@ -227,9 +230,11 @@ a {
     padding: 10px;
     background-color: #399BDA;
 }
+
 #background h1 {
     text-align: center;
 }
+
 #approveLink {
     width: 10%;
     margin: 0px auto;
@@ -238,6 +243,7 @@ a {
     text-decoration: none;
     text-align: center;
 }
+
 #approveLink a {
     text-decoration: none;
     color: white;

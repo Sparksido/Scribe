@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <% include partial_head %>
+</head>
+<body>
+    <header id="header">
+        <nav id="navBar">
+            <h1>
+                Scribe
+            </h1>
+        </nav>
+    </header>
+
+    <!-- criteria -->
+    <div id="metrics">
+        <div id="risk">
+            <h2>Risk</h2>
+            <%= potentialProject.risk %>
+        </div>
+        <div id="strategicAlignment">
+            <h2>Strategic Alignment</h2>
+            <%= potentialProject.stratAlign %>
+        </div>
+        <div id="owner">
+            <h2>Owner</h2>
+            <%= potentialProject.owner %>
+        </div>
+    </div>
+
+    <!-- About the project -->
+    <div id="background">
+        <h1><%= potentialProject.name %></h1>
+        <p><%= potentialProject.description %></p>
+    </div>
+
+    <!-- The Approve Button -->
+    <div id="approveLink">
+        <a id="final" href="/projectAprover/<%= potentialProject.id %>">Approve</a>
+    </div>
+</body>
