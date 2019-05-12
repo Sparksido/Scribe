@@ -134,8 +134,8 @@ nav h2{
 	margin:auto;
 }
 
-#subStage{
-	width: 80%;
+.subStage{
+	
 	display: block;
 	margin: 12px auto;
 	text-decoration: none;
@@ -143,6 +143,10 @@ nav h2{
 	color: white;
 	padding: 7px;
 	text-align: center;
+}
+
+#gateway{
+	width: 80%;
 }
 
 /*=========InitiationPageE==========*/
@@ -235,4 +239,8 @@ nav h2{
 	box-shadow: 0;
 	border: 0px;
 	height: 40px;
+}
+
+#updater{
+	width:50%;
 }

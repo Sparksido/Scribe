@@ -174,7 +174,23 @@ router.post("/projectAcceptor", function(req,res){
                 }else{  
                     var subProcessList = db.collection("subProcesses");
                     subProcessList.insertMany(subProcesses,function(err, result3){
-                        res.render("initiationPageM",{project:result, user:"manager", approval:""});
+                        //res.render("initiationPageM",{project:result, user:"manager", approval:""});
+
+                        projects.find({"approvalStatus":"sponsored"}).toArray(function(err, tasks){
+                            if(err){
+                                console.log("err");
+                            }else{
+
+                                res.cookie("level",result.level);
+                                console.log("THE LEVEL THAT WAS SIGNED UP IS");
+                                console.log(result.level);
+                                res.cookie("userId",result.id);
+
+                                projects.find({"approvalStatus":"pending"}).toArray(function(error, result2){
+                                    res.render("homepage2",{currentTasks:tasks, pendingTasks:result2});
+                                });
+                            }
+                        });
                     })  
                 }
             })
@@ -199,6 +215,7 @@ router.get("/projectAprover/:projId", function(req, res){
             charterObj["projectOwner"] = result["owner"];
             charterObj["projectSponsor"] = result["sponsor"];
             charterObj["projectManager"] = result[""];
+            charterObj["projectId"] = projectId;
             charterObj["startDate"] = result["startDate"];
             charterObj["endDate"] = result["endDate"];
 
