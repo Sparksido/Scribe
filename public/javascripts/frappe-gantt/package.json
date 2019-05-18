@@ -1,0 +1,113 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "frappe-gantt",
+        "scope": null,
+        "escapedName": "frappe-gantt",
+        "name": "frappe-gantt",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/home/mopati/Projects/Scribe"
+    ]
+  ],
+  "_from": "frappe-gantt@latest",
+  "_hasShrinkwrap": false,
+  "_id": "frappe-gantt@0.3.0",
+  "_inCache": true,
+  "_location": "/frappe-gantt",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/frappe-gantt_0.3.0_1537712259534_0.13401422154497244"
+  },
+  "_npmUser": {
+    "name": "netchampfaris",
+    "email": "netchamp.faris@gmail.com"
+  },
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "frappe-gantt",
+    "scope": null,
+    "escapedName": "frappe-gantt",
+    "name": "frappe-gantt",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/frappe-gantt/-/frappe-gantt-0.3.0.tgz",
+  "_shasum": "0c718be2a5b5602be4ceb35ecc2093f9af59bea2",
+  "_shrinkwrap": null,
+  "_spec": "frappe-gantt",
+  "_where": "/home/mopati/Projects/Scribe",
+  "author": {
+    "name": "Faris Ansari"
+  },
+  "bugs": {
+    "url": "https://github.com/frappe/gantt/issues"
+  },
+  "dependencies": {},
+  "description": "A simple, modern, interactive gantt library for the web",
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "deepmerge": "^2.0.1",
+    "eslint": "^4.17.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "jest": "^22.2.1",
+    "prettier": "1.10.2",
+    "rollup": "^0.55.3",
+    "rollup-plugin-sass": "^0.5.3",
+    "rollup-plugin-uglify": "^3.0.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "0c718be2a5b5602be4ceb35ecc2093f9af59bea2",
+    "tarball": "https://registry.npmjs.org/frappe-gantt/-/frappe-gantt-0.3.0.tgz",
+    "integrity": "sha512-19rJUJ6UfAN7LPHHhVtYjff0mdyat/mwMW+PAXp5s1211QZ4loi+TkuGgRY9n1r9xAI/VlGoYHUehHdYZge3aQ==",
+    "fileCount": 27,
+    "unpackedSize": 581191,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbp6CECRA9TVsSAnZWagAAugkP/2NW0ILVBij/QWwQk6JH\nmxsBqzxxkMbVQPW5WKjpWaChZLNkazEbEl7tp2+YNviDdIc6IU9JVzILHtwm\nHGrjWVizTdrw+yBBWVTzSNxAE2JO3wogfBGhV/+u03eLl/kbHKUbD7gSxCV0\n5L8dW1SSg9j9lHc2mIUMZEPKDHR+8glUZttzbR+77ZKyrFY3JRTn5JguFHEA\n2rux5nsZb57b2KQOltJ+JUwjptmpqSpm6u6aVXD6hDA6cI9uuXWIUwjltPer\n1KsOULIsbIuBsU1QP9OMxYCzE04ldUHdvNWMAg5elWn+U9lwvfRogI5gokCw\niHcQy8enbydFIOSOzsrNBnFr8v+N5otdnDFJzFTKkTzJlHdNBxnXbmB5CJ8Y\n1S4fZisC9KLDyZ9tHDui8K8LFRmpG27RGgpsQ2V9vEfUKApGw4fRCWbih6o+\nDlBypt1XJXWqZUsEuzgY1/1Nr38lfy51olWwaRMYCKcbN8FthxT89ILxSph2\nBCjP2iiKYI14x9XT16AlY/hAmr4M4JZrNo0W6tYnBoucgBmEayGGe8Vlpnpy\nC+mrvbyfHcO5VYv0D5Pz619ouwMn0shRgLi333C0diGVlFEa7C5DVZ74ksP+\nrtMwiUY20Wn0uGRrNWdcoxoK2NBL10WqX418g75NqwIawXFgsmDy13IJfSyx\noQu0\r\n=lEPg\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "eslintIgnore": [
+    "dist"
+  ],
+  "homepage": "https://github.com/frappe/gantt",
+  "keywords": [
+    "gantt",
+    "svg",
+    "simple gantt",
+    "project timeline",
+    "interactive gantt",
+    "project management"
+  ],
+  "license": "MIT",
+  "licenseText": "The MIT License (MIT)\n\nCopyright (c) 2016 Frappe Technologies Pvt. Ltd.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+  "main": "src/index.js",
+  "maintainers": [
+    {
+      "name": "netchampfaris",
+      "email": "netchamp.faris@gmail.com"
+    }
+  ],
+  "name": "frappe-gantt",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frappe/gantt.git"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "prettier": "prettier es6 --write \"{src/*,tests/*,rollup.config}.js\"",
+    "start": "yarn run dev",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "version": "0.3.0"
+}

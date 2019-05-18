@@ -485,4 +485,42 @@ router.post("/feedback", function(req,res){
     })  
 });
 
+router.get("/ganttView", function(req, res){
+    res.render("ganttChart",{});
+});
+
+router.get("/gantt", function(req, res){
+    MongoClient.connect(url, {useNewUrlParser: true}, function(err, client){
+        var db = client.db(dbName);
+
+        var projects = db.collection("projects");
+        projects.find({"approvalStatus":"sponsored"}).toArray(function(fault, endevours){
+
+            console.log("THE PROJECTS ARE");
+            console.log(endevours);
+
+            var schedule = [];            
+
+            for(var i = 0; i < endevours.length; i++){
+                var item = {};
+                item["id"] = "Task "+ i.toString();
+                item["name"] = endevours[i].name;
+                item["start"] = new Date(endevours[i].startDate);
+                item["end"] = new Date(endevours[i].endDate);
+                item["progress"] = 20;
+            //    item["dependencies"] = "Task 2, Task 3"
+
+                schedule.push(item);
+            }
+
+            console.log("THE SCHEDULE IS");
+            console.log(schedule);
+            
+            res.json(schedule);
+        });
+        
+    })
+    
+})
+
 module.exports = router;
